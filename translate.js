@@ -1,5 +1,4 @@
 var fs = require('fs');
-import { openSync, closeSync, readFileSync, writeFileSync } from 'fs'
 
 var numTranslated = 0;
 
