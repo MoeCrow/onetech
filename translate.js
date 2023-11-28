@@ -36,6 +36,8 @@ function loadfile(filename){
 	deleteCache();
 	copyMenu(filename);
 	if (fs.existsSync(filename)) {
+		console.log('filename is:  ' + filename);
+
 		try {
 			var contents = fs.readFileSync(filename, 'utf8');	
 			if(contents == undefined)
@@ -43,7 +45,8 @@ function loadfile(filename){
 			contents = contents.split("\n");
 			contents.forEach(function(element) {
 				element = replaceNonASCII(element.replace(/\t/g,''));
-				console.log('Replacing:',element.split(";")[1] +'!');	// 19.txt
+				// console.log('Replacing:',element.split(";")[1] +'!');
+				// 参数：./objects/19.txt, 女性001 D
 				replaceTextInFile('./objects/'+element.split(";")[0].replace(/\s/g, ''),element.split(";")[1]);
 			});
 			console.log('Translated ' + numTranslated + ' items!');
