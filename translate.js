@@ -43,7 +43,7 @@ function loadfile(filename){
 			contents = contents.split("\n");
 			contents.forEach(function(element) {
 				element = replaceNonASCII(element.replace(/\t/g,''));
-				console.log('Replacing:',element.split(";")[0].replace(/\s/g, '')+'!');
+				console.log('Replacing:',element.split(";")[1] +'!');	// 19.txt
 				replaceTextInFile('./objects/'+element.split(";")[0].replace(/\s/g, ''),element.split(";")[1]);
 			});
 			console.log('Translated ' + numTranslated + ' items!');
