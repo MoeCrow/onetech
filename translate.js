@@ -78,8 +78,6 @@ function replaceTextInFile(filename,newstring){
 				return console.log(err);
 			}
 		}); 
-
-		fs.close()
 	} catch(e) {
 		//not exists
 		console.log("Missing file:" + filename + " error: " + e);
