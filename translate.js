@@ -61,33 +61,31 @@ function loadfile(filename){
 
 }
 // ./objects/19.txt  汉化后的内容
-function replaceTextInFile(filename,newstring){
-	if(newstring == undefined || newstring.replace(/(^s*)|(s*$)/g, "").length ==0)
-		return;
-	try {
-		const d = openSync(filename, 'r')
 
-		var contents = fs.readFileSync(d, 'utf8');
+function replaceTextInFile(filename, newstring) {
+    if (newstring == undefined || newstring.replace(/(^s*)|(s*$)/g, "").length == 0)
+        return;
 
-		if(contents == undefined)
-			return;
-		contents = contents.split("\n");
-		contents[1] = newstring;// + "\r";
-		console.log("Translated " + filename + " with " + contents[1]);
-		numTranslated++;
-		contents = contents.join("\n");
-		fs.writeFile(filename, contents, 'utf8', function(err) {
-			if(err) {
-				return console.log(err);
-			}
-		}); 
+    try {
+        const d = fs.openSync(filename, 'r');
+        var contents = fs.readFileSync(d, 'utf8');
 
-		closeSync(d)
+        if (contents == undefined)
+            return;
 
-	} catch(e) {
-		//not exists
-		console.log("Missing file:" + filename + " error: " + e);
-	}
+        contents = contents.split("\n");
+        contents[1] = newstring;
+        console.log("Translated " + filename + " with " + contents[1]);
+        numTranslated++;
+
+        contents = contents.join("\n");
+        fs.writeFileSync(filename, contents, 'utf8');
+
+        fs.closeSync(d);
+    } catch (e) {
+        // not exists
+        console.log("Missing file:" + filename + " error: " + e);
+    }
 }
 
 //
