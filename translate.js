@@ -65,7 +65,6 @@ function replaceTextInFile(filename,newstring){
 		return;
 	try {
 		var contents = fs.readFileSync(filename, 'utf8');
-		console.log("Read contents[1]:" + contents[1]);
 
 		if(contents == undefined)
 			return;
@@ -81,7 +80,7 @@ function replaceTextInFile(filename,newstring){
 		}); 
 	} catch(e) {
 		//not exists
-		console.log("Missing file:" + filename);
+		console.log("Missing file:" + filename + " error: " + e);
 	}
 }
 
