@@ -36,9 +36,9 @@ function loadfile(filename){
 	deleteCache();
 	copyMenu(filename);
 	if (fs.existsSync(filename)) {
-		console.log('filename is:  ' + filename);
 
 		try {
+			// 1.txt 的内容
 			var contents = fs.readFileSync(filename, 'utf8');	
 			if(contents == undefined)
 				return;
@@ -59,13 +59,14 @@ function loadfile(filename){
 	
 
 }
-
+// ./objects/19.txt  汉化后的内容
 function replaceTextInFile(filename,newstring){
 	if(newstring == undefined || newstring.replace(/(^s*)|(s*$)/g, "").length ==0)
 		return;
 	try {
-		console.log("Now Reading:" + filename);
 		var contents = fs.readFileSync(filename, 'utf8');
+		console.log("Read contents[1]:" + contents[1]);
+
 		if(contents == undefined)
 			return;
 		contents = contents.split("\n");
