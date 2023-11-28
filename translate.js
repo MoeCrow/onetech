@@ -61,6 +61,7 @@ function replaceTextInFile(filename,newstring){
 	if(newstring == undefined || newstring.replace(/(^s*)|(s*$)/g, "").length ==0)
 		return;
 	try {
+		console.log("Now Reading:" + filename);
 		var contents = fs.readFileSync(filename, 'utf8');
 		if(contents == undefined)
 			return;
