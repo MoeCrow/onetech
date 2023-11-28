@@ -1,4 +1,6 @@
 var fs = require('fs');
+import { openSync, closeSync, readFileSync, writeFileSync } from 'fs'
+
 var numTranslated = 0;
 
 function deleteCache(){
@@ -64,7 +66,9 @@ function replaceTextInFile(filename,newstring){
 	if(newstring == undefined || newstring.replace(/(^s*)|(s*$)/g, "").length ==0)
 		return;
 	try {
-		var contents = fs.readFile(filename, 'utf8');
+		const d = openSync(filename, 'r')
+
+		var contents = fs.readFileSync(d, 'utf8');
 
 		if(contents == undefined)
 			return;
@@ -78,6 +82,9 @@ function replaceTextInFile(filename,newstring){
 				return console.log(err);
 			}
 		}); 
+
+		closeSync(d)
+
 	} catch(e) {
 		//not exists
 		console.log("Missing file:" + filename + " error: " + e);
