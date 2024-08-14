@@ -72,6 +72,15 @@ const Character = {
   }
 }
 
+const NewObj = {
+  key: "NewObj",
+  name: "上新",
+  filter(objects) {
+    return objects.filter(o => o.name.includes("上新")
+    );
+  }
+}
+
 // const CharacterNS = {
 //   key: "characterns",
 //   name: "定制角色",
@@ -100,6 +109,7 @@ const ObjectFilters = {
 	Character,
 	// CharacterNS,
     Uncraftable,
+    NewObj,
   ],
   jsonData(objects) {
     objects = objects.filter(o => o.canFilter());
