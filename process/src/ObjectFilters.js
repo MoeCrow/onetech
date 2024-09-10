@@ -81,6 +81,34 @@ const NewObj = {
   }
 }
 
+const ZanZhu = {
+  key: "ZanZhu",
+  name: "赞助",
+  filter(objects) {
+    return objects.filter(o => o.name.includes("❤️")
+    );
+  }
+}
+
+const JianZhu = {
+  key: "JianZhu",
+  name: "建筑",
+  filter(objects) {
+    return objects.filter(o => o.name.includes("⌂")
+    );
+  }
+}
+
+const Animal = {
+  key: "Animal",
+  name: "动物",
+  filter(objects) {
+    return objects.filter(o => o.name.includes("ᐇ")
+    );
+  }
+}
+
+
 // const CharacterNS = {
 //   key: "characterns",
 //   name: "定制角色",
@@ -108,6 +136,9 @@ const ObjectFilters = {
     Natural,
 	Character,
 	// CharacterNS,
+  ZanZhu,
+  JianZhu,
+  Animal,
     Uncraftable,
     NewObj,
   ],
