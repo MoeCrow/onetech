@@ -8,13 +8,13 @@ const Clothing = {
   }
 }
 
-const CostClothing = {
-  key: "costclothing",
-  name: "赞助服装",
-  filter(objects) {
-    return objects.filter(o => o.isClothing() && !o.canCraft());
-  }
-}
+// const CostClothing = {
+//   key: "costclothing",
+//   name: "赞助服装",
+//   filter(objects) {
+//     return objects.filter(o => o.isClothing() && !o.canCraft());
+//   }
+// }
 
 const Food = {
   key: "food",
@@ -24,13 +24,13 @@ const Food = {
   }
 }
 
-const Tools = {
-  key: "tools",
-  name: "工具",
-  filter(objects) {
-    return objects.filter(o => o.isTool());
-  }
-}
+// const Tools = {
+//   key: "tools",
+//   name: "工具",
+//   filter(objects) {
+//     return objects.filter(o => o.isTool());
+//   }
+// }
 
 const Containers = {
   key: "containers",
@@ -108,6 +108,15 @@ const Animal = {
   }
 }
 
+const HuoDong = {
+  key: "HuoDong",
+  name: "活动",
+  filter(objects) {
+    return objects.filter(o => o.name.includes("【活动】")
+    );
+  }
+}
+
 
 // const CharacterNS = {
 //   key: "characterns",
@@ -128,9 +137,9 @@ const Uncraftable = {
 const ObjectFilters = {
   filters: [
     Clothing,
-    CostClothing,
+    // CostClothing,
     Food,
-    Tools,
+    // Tools,
     Containers,
     //HeatSources,
     Natural,
@@ -139,6 +148,7 @@ const ObjectFilters = {
   ZanZhu,
   JianZhu,
   Animal,
+  HuoDong,
     Uncraftable,
     NewObj,
   ],
