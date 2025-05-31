@@ -125,13 +125,13 @@ class GameData {
   }
 
   exportVersions() {
-    const versions = this.changeLog.versions.slice().reverse();
-    for (let version of versions) {
-      const path = `versions/${version.id}.json`;
-      if (version.isUnreleased() || version.id > 0 && !fs.existsSync(this.staticDir + "/" + path)) {
-        this.saveJSON(path, version.jsonData());
-      }
-    }
+    //const versions = this.changeLog.versions.slice().reverse();
+    //for (let version of versions) {
+    //   const path = `versions/${version.id}.json`;
+    //   if (version.isUnreleased() || version.id > 0 && !fs.existsSync(this.staticDir + "/" + path)) {
+    //     this.saveJSON(path, version.jsonData());
+    //   }
+    // }
   }
 
   exportBiomes() {
